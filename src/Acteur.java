@@ -1,5 +1,6 @@
 import java.util.Scanner;
-
+import java.util.Collection;
+import java.util.ArrayList;
 public class Acteur {
 	String Nom,Prenom;
 	
@@ -51,12 +52,23 @@ public class Acteur {
 		System.out.println("Saisir la recette : ");
 		String RecetteString = sc.nextLine();
 		int Recette = Integer.parseInt(RecetteString);
-		
 		Film F3 = new Film(titre,annee,numéro,Count,Recette);
 		System.out.println(F3);
+		Personnage P1 = new Personnage("Skywalker","Luke");
+		Personnage P2 = new Personnage("Vador","Dark");
+		System.out.println(P1);
+		Collection<Film> Trilogie;
+		Trilogie = new ArrayList<Film>();
+		Trilogie.add(F1);
+		Trilogie.add(F2);
+		Trilogie.add(F3);
+		afficherTrilogie(Trilogie);
+	}
+	public static void afficherTrilogie(Collection<Film> Trilogie) {
 		
-		
-		
+		for(Film Value : Trilogie) {
+			System.out.println(Value);
+		}
 		
 	}
 }
