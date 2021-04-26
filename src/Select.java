@@ -22,7 +22,7 @@ public class Select {
 			}
 			
 			
-			Scanner sc = new Scanner(System.in);
+			//Scanner sc = new Scanner(System.in);
 			
 			
 			//Supprimer un film par sont id
@@ -31,15 +31,16 @@ public class Select {
 			String deleteQuery = "DELETE FROM film where id = "+id+";"; 
 			System.out.println(deleteQuery);
 			stLogin.executeUpdate(deleteQuery);*/
-			
+			/*
 			System.out.println("Vous voulez update quelle film (id) : ");
 			String id = sc.nextLine();
 			System.out.println("Quelle est sont nouveau Titre : ");
 			String UpdateTitre = sc.nextLine();
 			String updateQuery = "Update film set Titre = '"+UpdateTitre+"' where id = "+id+";"; 
-			stLogin.executeUpdate(updateQuery);
+			stLogin.executeUpdate(updateQuery);*/
 			
-			conn.close();
+			stLogin.close();
+			
 		}
 		catch(ClassNotFoundException e) {  
 
