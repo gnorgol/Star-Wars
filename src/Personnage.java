@@ -1,8 +1,8 @@
+import java.util.Collection;
 
 public class Personnage {
 	
 	String Nom,Prenom;
-	
 	public Personnage(String Nom,String Prenom) {
 		
 		this.Nom = Nom;

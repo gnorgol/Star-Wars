@@ -3,7 +3,7 @@ import java.util.Collection;
 import java.util.ArrayList;
 public class Acteur {
 	String Nom,Prenom;
-	
+	ArrayList<Personnage> joue = new ArrayList<Personnage>();
 	
 	public Acteur(String Nom,String Prenom) {
 		
@@ -27,19 +27,36 @@ public class Acteur {
 	 }
 	public String toString() {
 		 
-		 return "Nom : "+this.Nom+" Prenom : "+this.Prenom;
-		 
+		 return this.Nom+" "+this.Prenom;	 
 	 }
+	public void addPersonnage(Personnage perso) {
+		if(this.nbPersonnage() < 2) {
+			this.joue.add(perso);
+		}
+		else {
+			System.out.println("Il joue deja 2 personnage");
+		}
+	}
+	public int nbPersonnage() {
+		
+		return this.joue.size();
+		
+	}
 	
 	public static void main(String[] arg) {
 		Scanner sc = new Scanner(System.in);
-		Acteur A1 = new Acteur("Lucas","George");
-		Film F1 = new Film("La Menace fantôme",1999,"I",100000,300000);
-		Film F2 = new Film("L'attaque des clones",2002,"II",500000,560000);
+		Acteur A1 = new Acteur("Jackson","Samuel");
+		Acteur A2 = new Acteur("Ford","Harrisson ");
+		ArrayList<Acteur> duet  = new ArrayList<Acteur>();
+		duet .add(A1);
+		duet .add(A2);
+		Film F1 = new Film("La Menace fantôme",1999,"I",100000,300000,duet);
+		Film F2 = new Film("L'attaque des clones",2002,"II",500000,560000,duet);
 		System.out.println(F1);
 		System.out.println(F2);
-		String test;
-		System.out.println("Saisir le titre : ");
+		
+		//Demmander film a l'utilisateur
+		/* System.out.println("Saisir le titre : ");
 		String titre = sc.nextLine();
 		System.out.println("Saisir l'année : ");
 		String annéeString = sc.nextLine();
@@ -52,20 +69,31 @@ public class Acteur {
 		System.out.println("Saisir la recette : ");
 		String RecetteString = sc.nextLine();
 		int Recette = Integer.parseInt(RecetteString);
-		Film F3 = new Film(titre,annee,numéro,Count,Recette);
+		Film F3 = new Film(titre,annee,numéro,Count,Recette,duet);
 		System.out.println(F3);
+		*/
 		Personnage P1 = new Personnage("Skywalker","Luke");
 		Personnage P2 = new Personnage("Vador","Dark");
+		Personnage P3 = new Personnage("Solo","Han");
+		Personnage P4 = new Personnage("Jones","Indiana");
+		
+		
+		
+		System.out.println(P3);
+		A2.addPersonnage(P3);//Acteur 2 joue Personnage 3
+		A2.addPersonnage(P4);//Acteur 2 joue Personnage 4
+		System.out.println(A2.nbPersonnage());//affiche nombre de personnage
+		
 		System.out.println(P1);
 		Collection<Film> Trilogie;
 		Trilogie = new ArrayList<Film>();
 		Trilogie.add(F1);
 		Trilogie.add(F2);
-		Trilogie.add(F3);
+		//Trilogie.add(F3);
 		afficherTrilogie(Trilogie);
+		System.out.println(F1.nbActeurs());
 	}
 	public static void afficherTrilogie(Collection<Film> Trilogie) {
-		
 		for(Film Value : Trilogie) {
 			System.out.println(Value);
 		}
