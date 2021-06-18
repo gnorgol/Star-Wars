@@ -1,6 +1,6 @@
-import java.util.Scanner;
-import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Scanner;
 public class Acteur {
 	String Nom,Prenom;
 	ArrayList<Personnage> joue = new ArrayList<Personnage>();
@@ -92,6 +92,23 @@ public class Acteur {
 		//Trilogie.add(F3);
 		afficherTrilogie(Trilogie);
 		System.out.println(F1.nbActeurs());
+		
+		System.out.println("------------------------------------------------------");//Partie Avis
+		
+		
+		Avis Avis1 = new Avis("Trés bon film",4, F2);
+		Avis Avis2 = new Avis("Trés mauvais film",1, F2);
+		Avis Avis3 = new Avis("Trés bon film",5, F1);
+		Avis Avis4 = new Avis("Trés bon film",5, F2);
+		F2.addListeAvis(Avis1);
+		F2.addListeAvis(Avis2);
+		F1.addListeAvis(Avis3);
+		F2.addListeAvis(Avis4);
+		
+		System.out.println("note max = "+F2.getNoteMax());
+		System.out.println("note min = "+F2.getNoteMin());
+		System.out.println("note moy = "+F2.getNoteMoy());
+		
 	}
 	public static void afficherTrilogie(Collection<Film> Trilogie) {
 		for(Film Value : Trilogie) {
